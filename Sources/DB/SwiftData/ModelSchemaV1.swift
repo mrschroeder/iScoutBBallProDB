@@ -467,9 +467,7 @@ public enum ModelsSchemaV1: VersionedSchema {
         @Relationship(inverse: \User.teams) public var users: [User] = []
         @Relationship(deleteRule: .cascade) public var logo: Logo? = nil
         
-        public init(league: League) {
-            self.league = league
-        }
+        public init() { }
     }
     
     @Model final public class TimeEvent {
