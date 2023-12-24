@@ -461,7 +461,7 @@ public enum ModelsSchemaV1: VersionedSchema {
         @Relationship(deleteRule: .cascade) public var gameTeamInfo: [GameTeamInfo] = []
         @Relationship(deleteRule: .cascade) public var emailStatMachine: EMail? = nil
         @Relationship(deleteRule: .cascade) public var email: EMail? = nil
-        @Relationship(deleteRule: .nullify) public var league: League
+        public var league: League? = nil
         @Relationship(deleteRule: .cascade) public var emailMaxPreps: EMail? = nil
         var season: Season? = nil
         @Relationship(inverse: \User.teams) public var users: [User] = []
