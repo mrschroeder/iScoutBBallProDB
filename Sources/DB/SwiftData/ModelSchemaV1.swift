@@ -91,7 +91,7 @@ public enum ModelsSchemaV1: VersionedSchema {
     @Model final public class CourtPosition {
         var Xcoordinate: Int64 = 0
         var Ycoordinate: Int64 = 0
-        @Relationship(minimumModelCount: 1) public var actionEvent: ActionEvent
+        public var actionEvent: ActionEvent
         
         public init(actionEvent: ActionEvent) {
             self.actionEvent = actionEvent
@@ -131,7 +131,7 @@ public enum ModelsSchemaV1: VersionedSchema {
         public var team: Team?
         @Relationship(deleteRule: .cascade, inverse: \SubEvent.event) public var subEvent: SubEvent? = nil
         @Relationship(deleteRule: .cascade, inverse: \ScoreAdjustment.event) public var scoreAdjustmentEvent: ScoreAdjustment? = nil
-        @Relationship(minimumModelCount: 1) public var game: Game
+        public var game: Game
         
         public var runningScoreHome: Int = 0
         public var runningScoreAway: Int = 0
@@ -147,7 +147,7 @@ public enum ModelsSchemaV1: VersionedSchema {
         var weight: Float? = 0
         var name: String?
         var abbrev: String
-        @Relationship(minimumModelCount: 1) public var eventType: EventTypes
+        public var eventType: EventTypes
         
         public init(abbrev: String, eventType: EventTypes) {
             self.abbrev = abbrev
@@ -216,7 +216,7 @@ public enum ModelsSchemaV1: VersionedSchema {
         @Attribute(originalName: "time") public var gameTime: Date
         var timerStopOnJump: Bool = true
         @Relationship(deleteRule: .cascade, inverse: \GameTeamInfo.gameTeam2) public var gameTeam2Info: GameTeamInfo? = nil
-        @Relationship(minimumModelCount: 1) public var season: Season
+        public var season: Season
         var tournament: Tournament? = nil
         @Relationship(deleteRule: .cascade) public var events: [Event] = []
         @Relationship(deleteRule: .cascade, inverse: \GameTeamInfo.gameTeam1) public var gameTeam1Info: GameTeamInfo? = nil
@@ -224,9 +224,8 @@ public enum ModelsSchemaV1: VersionedSchema {
         @Relationship(deleteRule: .cascade, inverse: \GameStatObject.game) public var gameStatObjects: [GameStatObject] = []
         @Relationship(deleteRule: .cascade, inverse: \Notes.game) public var notes: Notes? = nil
         
-        public init(time: Date, season: Season) {
+        public init(time: Date) {
             self.gameTime = time
-            self.season = season
         }
     }
     
@@ -379,7 +378,7 @@ public enum ModelsSchemaV1: VersionedSchema {
     @Model final public class ScoreAdjustment {
         var scoreValue: Int16 = 0
         var eventPeriod: Int16 = 1
-        @Relationship(minimumModelCount: 1) public var event: Event
+        public var event: Event
         
         public init(event: Event) {
             self.event = event
@@ -424,7 +423,7 @@ public enum ModelsSchemaV1: VersionedSchema {
         public var player5: Player? = nil
         public var player4: Player? = nil
         public var player3: Player? = nil
-        @Relationship(minimumModelCount: 1) public var event: Event
+        public var event: Event
         public var player1: Player? = nil
         public var player2: Player? = nil
         
@@ -475,7 +474,7 @@ public enum ModelsSchemaV1: VersionedSchema {
         @Attribute(originalName: "type") var timeEventType: Int16 = 0
         var comment: String = ""
         var eventPeriod: Int16 = 0
-        @Relationship(minimumModelCount: 1) public var event: Event
+        public var event: Event
         
         public init(event: Event) {
             self.event = event
