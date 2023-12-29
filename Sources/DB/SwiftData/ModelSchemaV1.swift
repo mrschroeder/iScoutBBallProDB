@@ -89,8 +89,8 @@ public enum ModelsSchemaV1: VersionedSchema {
     }
     
     @Model final public class CourtPosition {
-        var Xcoordinate: Int64 = 0
-        var Ycoordinate: Int64 = 0
+        public var Xcoordinate: Int64 = 0
+        public var Ycoordinate: Int64 = 0
         public var actionEvent: ActionEvent?
         
         public init(actionEvent: ActionEvent) {
