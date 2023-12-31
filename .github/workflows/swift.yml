@@ -15,7 +15,7 @@ jobs:
     runs-on: [macos-13]
 
     steps:
-     - name: Select Xcode
+    - name: Select Xcode
       run: sudo xcode-select -s "/Applications/Xcode_15.1.app"
     - uses: actions/checkout@v3
     # Sanity check to make sure we use a valid device in the next step
