@@ -11,12 +11,12 @@ on:
 
 jobs:
   build:
-
+    name: "Test Build"
     runs-on: [macos-13]
-  env:
-    destination: 'platform=iOS Simulator,name=iPhone 14 Pro,OS=17.0'
+    env:
+      destination: 'platform=iOS Simulator,name=iPhone 14 Pro,OS=17.0'
 
-    steps:
+  steps:
     - name: Select Xcode
       run: sudo xcode-select -s "/Applications/Xcode_15.1.app"
     - uses: actions/checkout@v3
