@@ -15,11 +15,13 @@ jobs:
     runs-on: [macos-13]
 
     steps:
+     - name: Select Xcode
+      run: sudo xcode-select -s "/Applications/Xcode_15.1.app"
     - uses: actions/checkout@v3
     # Sanity check to make sure we use a valid device in the next step
     - name: List available devices
       run: xcrun simctl list devicetypes 
     #generic/platform=iOS is sufficient for just building, - but need to specify concrete destination for tests
     - name: Build and run tests
-      run: xcodebuild test -scheme DB -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=17.0' #or any other name from the list of sim devices
+      run: xcodebuild -scheme DB -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=17.2' #or any other name from the list of sim devices
 
