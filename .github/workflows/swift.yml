@@ -3,8 +3,6 @@
 
 name: Swift
 
-env:
-  destination: 'platform=iOS Simulator,name=iPhone 14 Pro,OS=17.0'
 on:
   push:
     branches: [ "main" ]
@@ -15,6 +13,8 @@ jobs:
   build:
 
     runs-on: [macos-13]
+  env:
+    destination: 'platform=iOS Simulator,name=iPhone 14 Pro,OS=17.0'
 
     steps:
     - name: Select Xcode
